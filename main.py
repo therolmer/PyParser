@@ -81,7 +81,7 @@ def parse():
     reismus220V = Parse220v(reismus220V)
 
     global reismusVI
-    ParseVseIntrumenti(chromeDriver, reismusVI)
+    reismusVI = ParseVseIntrumenti(chromeDriver, reismusVI)
 
     global tokarStanok220V
     tokarStanok220V = Parse220v(tokarStanok220V)
@@ -94,8 +94,10 @@ class MyThread(Thread):
     def run(self):
         while not self.stopped.wait(60*60):
             parse()
+            print('try')
             # call a function
 
+parse()
 stopFlag = Event()
 thread = MyThread(stopFlag)
 thread.start()
