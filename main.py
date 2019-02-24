@@ -92,7 +92,7 @@ class MyThread(Thread):
         self.stopped = event
 
     def run(self):
-        while not self.stopped.wait(60):
+        while not self.stopped.wait(60*60):
             parse()
             # call a function
 
